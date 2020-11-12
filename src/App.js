@@ -21,7 +21,7 @@ class App extends Component {
 
     fetchOnClick = () => {
     if (this.state.dbKey.length <= 3) return     // if the search query is <= 3
-        fetch(`http://www.omdbapi.com/?s=${this.state.dbKey}&apikey=42ba56ba`)
+        fetch(`https://www.omdbapi.com/?s=${this.state.dbKey}&apikey=42ba56ba`)
         .then(response => response.json())
         .then(movie => this.setState({dbApi: movie.Search}))
     }
