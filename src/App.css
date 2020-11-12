@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+body {
+    background: linear-gradient(to right, rgb(51, 59, 163), rgb(213, 97, 255));
+    font-family: 'Cardo';
+}

@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
 import CardList from './CardList';
+import SearchBox from './SearchBox';
+import './App.css';
 import { dbLocal } from './database.js';
 
 class App extends Component {
     constructor(){
         super()
         this.state = {
-            dbLocal: dbLocal,
+            dbLocalsc: dbLocal,
             dbApi: [],
-            dbKey: 'star trek',
+            dbKey: 'casa',
+            hasError: false     // set Error value
         }
     }
+    
+    searchBoxEvent = (event) => {
+        this.setState({dbKey: event.target.value});
+    }
 
-    componentDidMount() {
+    fetchOnClick = () => {
+    if (this.state.dbKey.length <= 3) return     // if the search query is <= 3
         fetch(`http://www.omdbapi.com/?s=${this.state.dbKey}&apikey=42ba56ba`)
         .then(response => response.json())
         .then(movie => this.setState({dbApi: movie.Search}))
-        console.log(`http://www.omdbapi.com/?s=${this.state.dbKey}&apikey=42ba56ba`)
     }
 
     render(){
         return(
             <div>
-                <div>
-                    <h1>Movie Search:</h1>
-                    <input type="search" name="" id=""/>
-                </div>
+                <h1 className="tc f1 h-auto">Movie Finder</h1>
+                <SearchBox dbKey={this.searchBoxEvent} byClick={this.fetchOnClick}/>
                 <CardList dbLocal={dbLocal} dbApi={this.state.dbApi}/>
             </div>
         )
