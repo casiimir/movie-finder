@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
-import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 import { dbLocal } from './database.js';
 
@@ -34,9 +33,7 @@ class App extends Component {
             <div>
                 <h1 className="tc f1 h-auto">Movie Finder</h1>
                 <SearchBox dbKey={this.searchBoxEvent} byClick={this.fetchOnClick}/>
-                <ErrorBoundary>                    
-                    <CardList dbLocal={dbLocal} dbApi={this.state.dbApi}/>
-                </ErrorBoundary>
+                <CardList dbLocal={dbLocal} dbApi={this.state.dbApi}/>
             </div>
         )
     }
