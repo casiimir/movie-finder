@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300&display=swap');
+
+body {
+    background: linear-gradient(to right, rgb(92, 92, 204), rgb(102, 255, 148));
+    font-family: "Quicksand";
+}
+.star-cinema {
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+}
+
+.title {
+    font-family: "Pacifico";
+    margin: 0;
+}
+
+.tester {
+    border: 2px solid white;
+}
